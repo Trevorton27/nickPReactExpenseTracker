@@ -18,9 +18,29 @@ class Header extends React.Component {
   render () {
         return (
             <div>
-                <h1>{this.state.isLoggedIn ? "Logged In" : "Logged Out"}</h1>
-                <button onClick={this.handleClick}>Click Me</button>
-            </div>
+                <h1>Expense Tracker</h1>
+            <form>
+                <label>Date:
+                <input type="date"></input>
+                </label>
+                <label>Description:
+                <input type="text"></input>
+                </label>
+                <label>Amount:
+                <input type="number"></input>
+                </label>
+                <label>Location:
+                <input type="text"></input>
+                </label>
+                <br>
+                </br>
+                
+                
+            </form>
+                  <button class="btn-primary" onClick={this.handleClick}>Add Expense</button>
+                  <h1>{this.state.isLoggedIn ? "Logged In" : "Logged Out"}</h1>
+              </div>  
+            
         )
    }
 
