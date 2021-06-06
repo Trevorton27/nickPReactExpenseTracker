@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Expenses (){
+function Expenses(){
 
         return (
             <div>
-                <table class="table">
-                    <thead class="table table-dark">
+                <table className="table">
+                    <thead className="table table-dark">
                         <tr>
                             <th>Date</th>
                             <th>Description</th>
@@ -15,32 +15,28 @@ function Expenses (){
                     </thead>
                     <tbody >
                         <tr>
-                            <th class="table-primary">06/02/2021</th>
-                            <th class="table-primary">Groceries</th>
-                            <th class="table-danger">$108.63</th>
-                            <th class="table-primary">Kroger</th>
-                            <button class="btn btn-danger">Delete</button>
+                            <th className="table-primary">06/02/2021</th>
+                            <th className="table-primary">Groceries</th>
+                            <th className="table-danger">$108.63</th>
+                            <th className="table-primary">Kroger</th>
                         </tr>
                         <tr>
-                            <th class="table-primary">06/02/2021</th>
-                            <th class="table-primary">Groceries</th>
-                            <th class="table-danger">$108.63</th>
-                            <th class="table-primary">Kroger</th>
-                            <button class="btn btn-danger">Delete</button>
+                            <th className="table-primary">06/02/2021</th>
+                            <th className="table-primary">Groceries</th>
+                            <th className="table-danger">$108.63</th>
+                            <th className="table-primary">Kroger</th>
                         </tr>
                         <tr>
-                            <th class="table-primary">06/02/2021</th>
-                            <th class="table-primary">Groceries</th>
-                            <th class="table-danger">$108.63</th>
-                            <th class="table-primary">Kroger</th>
-                            <button class="btn btn-danger">Delete</button>
+                            <th className="table-primary">06/02/2021</th>
+                            <th className="table-primary">Groceries</th>
+                            <th className="table-danger">$108.63</th>
+                            <th className="table-primary">Kroger</th>
                         </tr>
                         <tr>
-                            <th class="table-primary">06/02/2021</th>
-                            <th class="table-primary">Groceries</th>
-                            <th class="table-danger">$108.63</th>
-                            <th class="table-primary">Kroger</th>
-                            <button class="btn btn-danger">Delete</button>
+                            <th className="table-primary">06/02/2021</th>
+                            <th className="table-primary">Groceries</th>
+                            <th className="table-danger">$108.63</th>
+                            <th className="table-primary">Kroger</th>
                         </tr>
                         
                     </tbody>

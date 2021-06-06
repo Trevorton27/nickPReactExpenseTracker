@@ -1,26 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-class Form extends React.Component {
-    constructor () {
-        super()
-        this.state = {
+function Form () {
+
+    const expenseData = {
+            id: Date.now(),
             date: "",
             description: "",
             amount: "",
             location: ""
-        }
-        this.handleClick = this.handleClick.bind(this)
-    }
+    }; 
 
-    handleClick(e) {
-        const {name, value} = e.target
-        this.setState({
-            [name]: value
-        })
-        
-    }
+    const [itemData, setItemData] = useState(expenseData);
 
-  render () {
+    function setItem(e) {
+        e.preventDefault()
+       // setItemData()
+        console.log({expenseData})
+    }
         return (
             <div>
             <form className="form-dark">
@@ -29,8 +25,8 @@ class Form extends React.Component {
                 <input 
                     type="date" 
                     name="date"
-                    value={this.state.date}
-                    onChange={this.handleClick}
+                    value={itemData.date}
+                    onChange={(e) => setItemData({...itemData, date: e.target.value})}
                     className="form-control"
                     />
                 </label>
@@ -39,9 +35,10 @@ class Form extends React.Component {
                 <input 
                     type="text" 
                     name="description"
-                    value={this.state.description}
-                    onChange={this.handleClick}
+                    value={itemData.description}
+                    onChange={(e) => setItemData({...itemData, description: e.target.value})}
                     className="form-control"
+                    placeholder="What?"
                     />
                 </label>
 
@@ -49,9 +46,10 @@ class Form extends React.Component {
                 <input 
                     type="number" 
                     name="amount"
-                    value={this.state.amount}
-                    onChange={this.handleClick}
+                    value={itemData.amount}
+                    onChange={(e) => setItemData({...itemData, amount: e.target.value})}
                     className="form-control"
+                    placeholder="How Much?"
                     />
                 </label>
 
@@ -59,25 +57,21 @@ class Form extends React.Component {
                 <input 
                     type="text" 
                     name="location"
-                    value={this.state.location}
-                    onChange={this.handleClick}
+                    value={itemData.location}
+                    onChange={(e) => setItemData({...itemData, location: e.target.value})}
                     className="form-control"
+                    placeholder="Where?"
                     />
                 </label>
                 
                 <br />
 
-                <button id="add-expense" className="btn btn-primary" onClick={this.handleClick}>Add Expense</button>
-                <h1>{this.state.date}</h1>
+                <button id="add-expense" className="btn btn-primary" type="submit" onClick={setItem}>Add Expense</button>
+                <h1>{}</h1>
                 
             </form>
-                  
-
-              </div>  
-            
+            </div>  
         )
    }
-
-}
 
 export default Form
