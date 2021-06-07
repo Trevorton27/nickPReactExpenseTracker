@@ -14,6 +14,7 @@ class Form extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleAddExpense = this.handleAddExpense.bind(this)
+        this.handleDeleteExpense = this.handleDeleteExpense.bind(this)
     }
 
     handleChange(e) {
@@ -33,16 +34,30 @@ class Form extends React.Component {
           amount: this.state.amount,
           location: this.state.location
         }
+
+        this.setState( {
+            expenseArray: [...this.state.expenseArray, newExpense],
+            date: '',
+            desription: '',
+            amount: '',
+            location: ''
+  
+          } )
+
+        //    { !this.state.date ||
+        //     !this.state.description ||
+        //     !this.state.amount ||
+        //     !this.state.location ?
+        //     alert("Please fill out all fields") : true}
+        
+    }
+
+    handleDeleteExpense ( id ) {
+        const deleteExpenseItem = this.state.expenseArray.filter( expense => expense.id !== id );
     
         this.setState( {
-          expenseArray: [...this.state.expenseArray, newExpense],
-          date: '',
-          desription: '',
-          amount: '',
-          location: ''
-
+          expenseArray: deleteExpenseItem
         } )
-        console.log(newExpense)
       }
 
 
@@ -93,7 +108,7 @@ class Form extends React.Component {
                 <button id="add-expense" className="btn btn-primary" onClick={this.handleAddExpense}>Add Expense</button>
         
             </form>
-            <Expenses expenseArray={this.state.expenseArray} />
+            <Expenses expenseArray={this.state.expenseArray} deleteExpense={this.handleDeleteExpense} />
         </div>  
         )
     }

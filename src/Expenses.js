@@ -11,6 +11,7 @@ function Expenses(props){
                             <th>Description</th>
                             <th>Amount</th>
                             <th>Location</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody >
@@ -21,10 +22,10 @@ function Expenses(props){
                         <tr key={id}>
                             <th className="table-primary">{date}</th>
                             <th className="table-primary">{description}</th>
-                            <th className="table-danger">$ {amount}</th>
+                            <th className="table-danger">$ {parseFloat(amount).toFixed(2)}</th>
                             <th className="table-primary">{location}</th>
-                            <th>
-                                <button id="delete-button" className="btn btn-danger">Delete</button>
+                            <th className="table-warning">
+                                <button id="delete-button" className="btn btn-danger" onClick={() => props.deleteExpense( id )}>Delete</button>
                             </th>
                         </tr>
                         )
