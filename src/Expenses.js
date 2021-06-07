@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Expenses(){
+function Expenses(props){
 
         return (
             <div>
@@ -14,37 +14,27 @@ function Expenses(){
                         </tr>
                     </thead>
                     <tbody >
-                        <tr>
-                            <th className="table-primary">06/02/2021</th>
-                            <th className="table-primary">Groceries</th>
-                            <th className="table-danger">$108.63</th>
-                            <th className="table-primary">Kroger</th>
+                        {props.expenseArray.map((newExpense) => {
+                            const {id, date, description, amount, location} = newExpense; 
+                       
+                        return (
+                        <tr key={id}>
+                            <th className="table-primary">{date}</th>
+                            <th className="table-primary">{description}</th>
+                            <th className="table-danger">$ {amount}</th>
+                            <th className="table-primary">{location}</th>
+                            <th>
+                                <button id="delete-button" className="btn btn-danger">Delete</button>
+                            </th>
                         </tr>
-                        <tr>
-                            <th className="table-primary">06/02/2021</th>
-                            <th className="table-primary">Groceries</th>
-                            <th className="table-danger">$108.63</th>
-                            <th className="table-primary">Kroger</th>
-                        </tr>
-                        <tr>
-                            <th className="table-primary">06/02/2021</th>
-                            <th className="table-primary">Groceries</th>
-                            <th className="table-danger">$108.63</th>
-                            <th className="table-primary">Kroger</th>
-                        </tr>
-                        <tr>
-                            <th className="table-primary">06/02/2021</th>
-                            <th className="table-primary">Groceries</th>
-                            <th className="table-danger">$108.63</th>
-                            <th className="table-primary">Kroger</th>
-                        </tr>
-                        
+                        )
+                    })}
+                    
                     </tbody>
                 </table>
             </div>
         )
-    
-    
-}
+                        
+    }
 
 export default Expenses

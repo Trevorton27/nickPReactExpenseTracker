@@ -1,77 +1,102 @@
-import React, {useState} from 'react'
+import React from 'react'
+import Expenses from './Expenses.js'
 
-function Form () {
+class Form extends React.Component {
 
-    const expenseData = {
-            id: Date.now(),
+    constructor (props) {
+        super(props)
+        this.state = {
+            expenseArray: [],
             date: "",
             description: "",
             amount: "",
             location: ""
-    }; 
-
-    const [itemData, setItemData] = useState(expenseData);
-
-    function setItem(e) {
-        e.preventDefault()
-       // setItemData()
-        console.log({expenseData})
+        }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleAddExpense = this.handleAddExpense.bind(this)
     }
+
+    handleChange(e) {
+        const {name, value} = e.target
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handleAddExpense (e) {
+        e.preventDefault();
+
+        const newExpense = {
+          id: Date.now(),
+          date: this.state.date,
+          description: this.state.description,
+          amount: this.state.amount,
+          location: this.state.location
+        }
+    
+        this.setState( {
+          expenseArray: [...this.state.expenseArray, newExpense],
+          date: '',
+          desription: '',
+          amount: '',
+          location: ''
+
+        } )
+        console.log(newExpense)
+      }
+
+
+  render () {
         return (
             <div>
             <form className="form-dark">
-
-                <label>Date
+            
+                <label>Date:
                 <input 
                     type="date" 
                     name="date"
-                    value={itemData.date}
-                    onChange={(e) => setItemData({...itemData, date: e.target.value})}
+                    value={this.state.date}
+                    onChange={this.handleChange}
                     className="form-control"
                     />
                 </label>
-
-                <label>Description
+                <label>Description:
                 <input 
                     type="text" 
                     name="description"
-                    value={itemData.description}
-                    onChange={(e) => setItemData({...itemData, description: e.target.value})}
+                    value={this.state.description}
+                    onChange={this.handleChange}
                     className="form-control"
-                    placeholder="What?"
                     />
                 </label>
-
-                <label>Amount
+                <label>Amount:
                 <input 
                     type="number" 
                     name="amount"
-                    value={itemData.amount}
-                    onChange={(e) => setItemData({...itemData, amount: e.target.value})}
+                    value={this.state.amount}
+                    onChange={this.handleChange}
                     className="form-control"
-                    placeholder="How Much?"
                     />
                 </label>
-
-                <label>Location
+                <label>Location:
                 <input 
                     type="text" 
                     name="location"
-                    value={itemData.location}
-                    onChange={(e) => setItemData({...itemData, location: e.target.value})}
+                    value={this.state.location}
+                    onChange={this.handleChange}
                     className="form-control"
-                    placeholder="Where?"
                     />
                 </label>
-                
-                <br />
 
-                <button id="add-expense" className="btn btn-primary" type="submit" onClick={setItem}>Add Expense</button>
-                <h1>{}</h1>
-                
+                    <br />
+
+                <button id="add-expense" className="btn btn-primary" onClick={this.handleAddExpense}>Add Expense</button>
+        
             </form>
-            </div>  
+            <Expenses expenseArray={this.state.expenseArray} />
+        </div>  
         )
-   }
+    }
+}
 
 export default Form
