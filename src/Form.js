@@ -7,11 +7,12 @@ class Form extends React.Component {
         super(props)
         this.state = {
             expenseArray: [],
-            date: "",
-            description: "",
-            amount: "",
-            location: ""
+            date: '',
+            description: '',
+            amount: '',
+            location: ''
         }
+
         this.handleChange = this.handleChange.bind(this)
         this.handleAddExpense = this.handleAddExpense.bind(this)
         this.handleDeleteExpense = this.handleDeleteExpense.bind(this)
@@ -45,9 +46,8 @@ class Form extends React.Component {
           } )  
     }
 
-    handleDeleteExpense ( id ) {
-        const deleteExpenseItem = this.state.expenseArray.filter( expense => expense.id !== id );
-    
+    handleDeleteExpense (id) {
+        const deleteExpenseItem = this.state.expenseArray.filter(expense => expense.id !== id);
         this.setState( {
           expenseArray: deleteExpenseItem
         } )
@@ -57,55 +57,61 @@ class Form extends React.Component {
   render () {
         return (
             <div>
-            <form className="form-dark" onSubmit={this.handleAddExpense}>
+
+                <form className="form-dark" onSubmit={this.handleAddExpense}>
             
-                <label>Date:
-                <input 
-                    type="date" 
-                    name="date"
-                    value={this.state.date}
-                    onChange={this.handleChange}
-                    className="form-control"
-                    required
-                    />
-                </label>
-                <label>Description:
-                <input 
-                    type="text" 
-                    name="description"
-                    value={this.state.description}
-                    onChange={this.handleChange}
-                    className="form-control"
-                    required
-                    />
-                </label>
-                <label>Amount:
-                <input 
-                    type="number" 
-                    name="amount"
-                    value={this.state.amount}
-                    onChange={this.handleChange}
-                    className="form-control"
-                    required
-                    />
-                </label>
-                <label>Location:
-                <input 
-                    type="text" 
-                    name="location"
-                    value={this.state.location}
-                    onChange={this.handleChange}
-                    className="form-control"
-                    required
-                    />
-                </label>
+                    <label>Date:
+                        <input 
+                        type="date" 
+                        name="date"
+                        value={this.state.date}
+                        onChange={this.handleChange}
+                        className="form-control"
+                        required
+                        />
+                    </label>
+
+                    <label>Description:
+                        <input 
+                        type="text" 
+                        name="description"
+                        value={this.state.description}
+                        onChange={this.handleChange}
+                        className="form-control"
+                        required
+                        />
+                    </label>
+
+                    <label>Amount:
+                        <input 
+                        type="number" 
+                        name="amount"
+                        value={this.state.amount}
+                        onChange={this.handleChange}
+                        className="form-control"
+                        required
+                        />
+                    </label>
+
+                    <label>Location:
+                    <input 
+                        type="text" 
+                        name="location"
+                        value={this.state.location}
+                        onChange={this.handleChange}
+                        className="form-control"
+                        required
+                        />
+                    </label>
 
                     <br />
 
                 <button id="add-expense" className="btn btn-primary">Add Expense</button>
         
             </form>
+
             <Expenses expenseArray={this.state.expenseArray} deleteExpense={this.handleDeleteExpense} />
+            
         </div>  
         )
     }

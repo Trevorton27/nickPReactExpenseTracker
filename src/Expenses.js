@@ -3,7 +3,7 @@ import React from 'react'
 function Expenses(props){
     let total = 0;
     props.expenseArray.map(expense => {
-        return total += parseInt(parseFloat(expense.amount))
+        return total += parseFloat(expense.amount)
     })
 
         return (
@@ -15,22 +15,31 @@ function Expenses(props){
                             <th>Description</th>
                             <th>Amount</th>
                             <th>Location</th>
-                            <th>Total: ${parseFloat(total).toFixed(2)}</th>
+                            <th>Total: ${total}</th>
                         </tr>
                     </thead>
                     
                     <tbody >
                         {props.expenseArray.map((newExpense) => {
-                            const {id, date, description, amount, location} = newExpense; 
+                            const { id, 
+                                    date, 
+                                    description,
+                                    amount, 
+                                    location } = newExpense; 
                        
                         return (
+
                         <tr key={id}>
                             <th className="table-primary">{date}</th>
                             <th className="table-primary">{description}</th>
                             <th className="table-danger">$ {parseFloat(amount).toFixed(2)}</th>
                             <th className="table-primary">{location}</th>
                             <th className="table-warning">
-                                <button id="delete-button" className="btn btn-danger" onClick={() => props.deleteExpense( id )}>Delete</button>
+                                <button 
+                                id="delete-button" 
+                                className="btn btn-danger" 
+                                onClick={() => props.deleteExpense( id )}> Delete
+                                </button>
                             </th>
                         </tr>
                         )
