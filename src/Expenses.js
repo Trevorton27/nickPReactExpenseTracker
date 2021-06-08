@@ -1,6 +1,10 @@
 import React from 'react'
 
 function Expenses(props){
+    let total = 0;
+    props.expenseArray.map(expense => {
+        return total += parseInt(parseFloat(expense.amount))
+    })
 
         return (
             <div>
@@ -11,7 +15,7 @@ function Expenses(props){
                             <th>Description</th>
                             <th>Amount</th>
                             <th>Location</th>
-                            <th>Total: $</th>
+                            <th>Total: ${parseFloat(total).toFixed(2)}</th>
                         </tr>
                     </thead>
                     
