@@ -11,9 +11,10 @@ function Expenses(props){
                             <th>Description</th>
                             <th>Amount</th>
                             <th>Location</th>
-                            <th></th>
+                            <th>Total: $</th>
                         </tr>
                     </thead>
+                    
                     <tbody >
                         {props.expenseArray.map((newExpense) => {
                             const {id, date, description, amount, location} = newExpense; 

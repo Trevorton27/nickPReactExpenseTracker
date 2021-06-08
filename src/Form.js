@@ -38,18 +38,11 @@ class Form extends React.Component {
         this.setState( {
             expenseArray: [...this.state.expenseArray, newExpense],
             date: '',
-            desription: '',
+            description: '',
             amount: '',
             location: ''
   
-          } )
-
-        //    { !this.state.date ||
-        //     !this.state.description ||
-        //     !this.state.amount ||
-        //     !this.state.location ?
-        //     alert("Please fill out all fields") : true}
-        
+          } )  
     }
 
     handleDeleteExpense ( id ) {
@@ -64,7 +57,7 @@ class Form extends React.Component {
   render () {
         return (
             <div>
-            <form className="form-dark">
+            <form className="form-dark" onSubmit={this.handleAddExpense}>
             
                 <label>Date:
                 <input 
@@ -73,6 +66,7 @@ class Form extends React.Component {
                     value={this.state.date}
                     onChange={this.handleChange}
                     className="form-control"
+                    required
                     />
                 </label>
                 <label>Description:
@@ -82,6 +76,7 @@ class Form extends React.Component {
                     value={this.state.description}
                     onChange={this.handleChange}
                     className="form-control"
+                    required
                     />
                 </label>
                 <label>Amount:
@@ -91,6 +86,7 @@ class Form extends React.Component {
                     value={this.state.amount}
                     onChange={this.handleChange}
                     className="form-control"
+                    required
                     />
                 </label>
                 <label>Location:
@@ -100,12 +96,13 @@ class Form extends React.Component {
                     value={this.state.location}
                     onChange={this.handleChange}
                     className="form-control"
+                    required
                     />
                 </label>
 
                     <br />
 
-                <button id="add-expense" className="btn btn-primary" onClick={this.handleAddExpense}>Add Expense</button>
+                <button id="add-expense" className="btn btn-primary">Add Expense</button>
         
             </form>
             <Expenses expenseArray={this.state.expenseArray} deleteExpense={this.handleDeleteExpense} />
