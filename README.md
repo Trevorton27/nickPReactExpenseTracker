@@ -4,7 +4,7 @@
  
 #### You can test the app [here](Heroku Link Goes Here) 
 
-![](ReactExpenseTrackerScreenshot.png)
+![](./src/ReactExpenseTrackerScreenshot.png)
 
 ## Project Summary
 This was an extremely fun and challenging app to build at this stage in my programming journey. This was the first 
