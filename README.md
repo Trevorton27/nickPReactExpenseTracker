@@ -7,9 +7,11 @@
 ![](./src/ReactExpenseTrackerScreenshot.png)
 
 ## Project Summary
+
 This was an extremely fun and challenging app to build at this stage in my programming journey. This was the first 
-application I have ever built using the React framework. This was also the first app that I built using Bootstrap. 
-This was a welcome relief of some of the challenges of making a Mobile-Responsive application! I hope to add some features in the future such as a budget indicator, currency types with icons, and catagories that track percentages of Food, Utilities, Entertainment etc. 
+application I have ever built using the React framework. I learned how to implement props, state, components, and the 
+difference between class-based and functional components. This was also the first app that I built using Bootstrap. 
+This was a welcome relief of some of the challenges of making a Mobile-Responsive application! I hope to add some features in the future such as a budget indicator, currency types with icons, and catagories that track percentages of Food, Utilities, and Entertainment etc... 
 
 ## About Me
 
